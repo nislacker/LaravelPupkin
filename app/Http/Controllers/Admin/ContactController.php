@@ -78,8 +78,9 @@ class ContactController extends Controller
     </div>']);
 */
 
-        $contents = \Illuminate\Support\Facades\DB::select('SELECT `name`, `content` FROM `pages` WHERE `name` = ?', ['default.contact']);
+        //$contents = \Illuminate\Support\Facades\DB::select('SELECT `name`, `content` FROM `pages` WHERE `name` = ?', ['default.contact']);
 
+        $contents = Page::where('name','default.contact')->get();
 
 
         $id = $request->query('id');
