@@ -41,7 +41,7 @@
 
 @section('content')
         @foreach ($contents as $content)
-            {!!  $content->content  !!}
+            {!!  $content  !!}
         @endforeach
 @endsection
 

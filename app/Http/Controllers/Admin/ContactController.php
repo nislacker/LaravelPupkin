@@ -82,11 +82,16 @@ class ContactController extends Controller
 
         $contents = Page::where('name','default.contact')->get();
 
+        $pureContents = [];
+
+        foreach ($contents as $content) {
+            $pureContents[] = $content->content;
+        }
 
         $id = $request->query('id');
 
         if (view()->exists('default.contact')) {
-            return view('default.contact', ['title' => 'Contacts. Id = ' . $id . ' ', 'contents' => $contents]);
+            return view('default.contact', ['title' => 'Contacts. Id = ' . $id . ' ', 'contents' => $pureContents]);
         }
 
         abort(404);
